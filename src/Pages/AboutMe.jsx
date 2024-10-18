@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"
-import ButtonCV from "../Components/ButtonCV"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { db } from "../firebase" // Mengimpor objek db dari file firebase.js
-import { collection, getDocs } from "firebase/firestore" // Mengimpor modul yang benar
+import { db } from "../firebase" 
+import { collection, getDocs } from "firebase/firestore" 
 
 const AboutMe = () => {
 	const [projectCount, setProjectCount] = useState(0)
@@ -13,8 +12,7 @@ const AboutMe = () => {
 		AOS.init()
 		AOS.refresh()
 
-		// Ambil data project dari Firestore
-		const projectCollection = collection(db, "projects") // Mengacu pada koleksi "projects" di Firestore
+		const projectCollection = collection(db, "projects") 
 		getDocs(projectCollection)
 			.then((querySnapshot) => {
 				setProjectCount(querySnapshot.size)
@@ -23,8 +21,7 @@ const AboutMe = () => {
 				console.error("Error fetching projects: ", error)
 			})
 
-		// Ambil data certificate dari Firestore
-		const certificateCollection = collection(db, "certificates") // Mengacu pada koleksi "certificates" di Firestore
+		const certificateCollection = collection(db, "certificates") 
 		getDocs(certificateCollection)
 			.then((querySnapshot) => {
 				setCertificateCount(querySnapshot.size)
@@ -69,10 +66,6 @@ const AboutMe = () => {
 							berusaha untuk menemukan solusi terbaik dalam setiap proyek yang saya kerjakan dan
 							memiliki minat besar di bidang pembuatan web, desain, dan bot whatsApp.
 						</p>
-
-						<div className="relative " data-aos="fade-up" data-aos-duration="800">
-							<ButtonCV />
-						</div>
 
 						<div
 							class="grid grid-cols-3 md:gap-4 gap-5 mt-5"
