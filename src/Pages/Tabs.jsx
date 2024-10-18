@@ -131,7 +131,7 @@ export default function FullWidthTabs() {
               }}
             />
             <Tab
-              label="Certificate"
+              label="Desain Album"
               {...a11yProps(1)}
               sx={{
                 fontWeight: "Bold",
