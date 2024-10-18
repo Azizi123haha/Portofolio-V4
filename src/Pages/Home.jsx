@@ -23,10 +23,10 @@ const Home = () => {
         <div className="flex justify-center items-center md:mt-0 mt-[20%] md:w-2/3 z-20">
           <div className="relative bottom-[4em]">
             <h5 className="text-[#a6adba] text-2xl" data-aos="fade-up" data-aos-duration="800">
-              Hello There 👋
+              Halo 👋
             </h5>
             <h1 className="md:text-6xl text-4xl text-[#ced4d7] font-bold mb-2 pr-[1%]" data-aos="fade-up" data-aos-duration="1000">
-              I’m EKI ZULFAR RACHMAN
+             Saya Muhammad Ramdhan Azizi
             </h1>
 
             <div data-aos="fade-up" data-aos-duration="1100">
