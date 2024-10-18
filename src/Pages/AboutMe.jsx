@@ -63,11 +63,11 @@ const AboutMe = () => {
 							className="text-[#a6adba] w-full text-justify text-xl mb-5 mt-5 md:mt-0"
 							data-aos="fade-up"
 							data-aos-duration="600">
-							Saya adalah Eki Zulfar Rachman, seorang siswa yang menekuni bidang Teknik Komputer
-							Jaringan dengan fokus pada pengembangan front-end web. Saya memiliki tekad yang kuat
+							Saya adalah Muhammad Ramdhan Azizi, seorang siswa yang berumur 14 tahun yang fokus pada
+						        pembelajaran desainer grafis. Saya memiliki tekad yang kuat
 							untuk terus belajar dan mengasah keterampilan saya demi mencapai kesempurnaan. Selalu
 							berusaha untuk menemukan solusi terbaik dalam setiap proyek yang saya kerjakan dan
-							memiliki minat besar di bidang front-end web.
+							memiliki minat besar di bidang pembuatan web, desain, dan bot whatsApp.
 						</p>
 
 						<div className="relative " data-aos="fade-up" data-aos-duration="800">
@@ -94,7 +94,7 @@ const AboutMe = () => {
 								class="w-auto h-[8em] flex flex-col justify-center items-center rounded-sm"
 								id="InfoAbout">
 								<b className="text-3xl text-[#ced4d7]">{certificateCount}+</b>
-								<div className="text-center text-[#a6adba]">Certificate</div>
+								<div className="text-center text-[#a6adba]">Desain Album</div>
 							</div>
 						</div>
 					</div>
