@@ -10,11 +10,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CardProject from "../Components/Card";
-import Certificate from "../Components/Certificate";
 import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { styled } from "@mui/system";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -58,23 +56,15 @@ export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const [showAllCertificates, setShowAllCertificates] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const projectCollection = collection(db, "projects");
-        const certificateCollection = collection(db, "certificates");
         const projectQuerySnapshot = await getDocs(projectCollection);
-        const certificateQuerySnapshot = await getDocs(certificateCollection);
-
         const projectData = projectQuerySnapshot.docs.map((doc) => doc.data());
-        const certificateData = certificateQuerySnapshot.docs.map((doc) => doc.data());
-
         setProjects(projectData);
-        setCertificates(certificateData);
       } catch (error) {
         console.error("Error fetching data from Firebase:", error);
       }
@@ -91,16 +81,8 @@ export default function FullWidthTabs() {
     setShowAllProjects(true);
   };
 
-  const handleShowMoreCertificates = () => {
-    setShowAllCertificates(true);
-  };
-
   const handleShowLessProjects = () => {
     setShowAllProjects(false);
-  };
-
-  const handleShowLessCertificates = () => {
-    setShowAllCertificates(false);
   };
 
   return (
@@ -131,17 +113,8 @@ export default function FullWidthTabs() {
               }}
             />
             <Tab
-              label="Desain Album"
-              {...a11yProps(1)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
               label="Tech Stack"
-              {...a11yProps(2)}
+              {...a11yProps(1)}
               sx={{
                 fontWeight: "Bold",
                 color: "#ced4d7",
@@ -181,33 +154,6 @@ export default function FullWidthTabs() {
               )}
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
-                {(showAllCertificates ? certificates : certificates.slice(0, 6)).map((Sertifikat, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
-                    <Certificate ImgSertif={Sertifikat.Img} />
-                  </div>
-                ))}
-              </div>
-              </div>
-              {certificates.length > 6 && (
-                <div className="mt-4 text-[#ced4d7]" >
-                  {showAllCertificates ? (
-                    <button onClick={handleShowLessCertificates} className="opacity-75 italic text-sm">
-                      See Less
-                    </button>
-                  ) : (
-                    <button onClick={handleShowMoreCertificates} className="opacity-75 text-sm">
-                      See More
-                    </button>
-                  )}
-                </div>
-              )}
-
-  
-          
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {/* Programming icon / tech stack  */}
