@@ -76,7 +76,7 @@ export default function FullWidthTabs() {
             }}
           >
             <Tab
-              label="Tech Stack"
+              label="Skills"
               {...a11yProps(0)}
               sx={{
                 fontWeight: "Bold",
