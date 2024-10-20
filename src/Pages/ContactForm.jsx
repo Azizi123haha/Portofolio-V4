@@ -32,7 +32,7 @@ const ContactForm = () => {
 							</div>
 
 							<form
-								action="https://formsubmit.co/ekizulfarrachman@gmail.com"
+								action="https://formsubmit.co/kartukjtjskywkeke@gmail.com"
 								method="POST"
 								className=" md:p-1 p-0"
 								data-aos="fade-up"
