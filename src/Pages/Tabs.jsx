@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -9,7 +7,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CardProject from "../Components/Card";
 import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -55,34 +52,9 @@ function a11yProps(index) {
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const [projects, setProjects] = useState([]);
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const projectCollection = collection(db, "projects");
-        const projectQuerySnapshot = await getDocs(projectCollection);
-        const projectData = projectQuerySnapshot.docs.map((doc) => doc.data());
-        setProjects(projectData);
-      } catch (error) {
-        console.error("Error fetching data from Firebase:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const handleShowMoreProjects = () => {
-    setShowAllProjects(true);
-  };
-
-  const handleShowLessProjects = () => {
-    setShowAllProjects(false);
   };
 
   return (
@@ -104,17 +76,8 @@ export default function FullWidthTabs() {
             }}
           >
             <Tab
-              label="Project"
-              {...a11yProps(0)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
               label="Tech Stack"
-              {...a11yProps(1)}
+              {...a11yProps(0)}
               sx={{
                 fontWeight: "Bold",
                 color: "#ced4d7",
@@ -129,31 +92,6 @@ export default function FullWidthTabs() {
           onChangeIndex={setValue}
         >
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden ">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {(showAllProjects ? projects : projects.slice(0, 6)).map((project, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
-                    <CardProject Img={project.Img} Title={project.Title} Description={project.Description} Link={project.Link} />
-                  </div>
-                ))}
-              </div>
-             
-            </div>
-            {projects.length > 6 && (
-                <div className="mt-4 text-[#ced4d7] ">
-                  {showAllProjects ? (
-                    <button onClick={handleShowLessProjects} className="opacity-75 italic text-sm">
-                      See Less
-                    </button>
-                  ) : (
-                    <button onClick={handleShowMoreProjects} className="opacity-75 text-sm">
-                      See More
-                    </button>
-                  )}
-                </div>
-              )}
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {/* Programming icon / tech stack  */}
