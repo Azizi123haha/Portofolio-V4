@@ -127,7 +127,7 @@ export default function SocialMedia() {
           <a href="https://www.instagram.com/aziziazzasgwy_">
             <img
               src="/SocialMediaImg/Instagram.jpg"
-              alt="Instagram Eki"
+              alt="Instagram Azizi"
               className="object-contain h-auto w-[10rem] md:w-[14.3rem]  rounded-xl "
             />
           </a>
@@ -136,7 +136,7 @@ export default function SocialMedia() {
           <a href="https://www.youtube.com/@reyzzkizx">
             <img
               src="/SocialMediaImg/youtube.jpg"
-              alt="Youtube Eki"
+              alt="Youtube Azizi"
               className="object-contain h-auto w-[10rem] md:w-[14.3rem] rounded-xl"
             />
           </a>
@@ -145,7 +145,7 @@ export default function SocialMedia() {
           <a href="https://github.com/Azizi123haha">
             <img
               src="/SocialMediaImg/github.jpg"
-              alt="Github Eki"
+              alt="Github Azizi"
               className="object-contain h-auto w-[10rem] md:w-[14.3rem] rounded-xl"
             />
           </a>
