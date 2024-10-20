@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 
 const Home = () => {
   const [text] = useTypewriter({
-    words: ["Student", "Web Developer", " Desainer Grafis"],
+    words: [" Saya Seorang - Student", "Saya Seorang - Web Developer", "Saya Seorang - Graphic Designer"],
     loop: {},
   });
 
