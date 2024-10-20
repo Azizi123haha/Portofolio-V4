@@ -124,7 +124,7 @@ export default function SocialMedia() {
 
       <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         <TabPanel value={value} index={0}>
-          <a href="https://www.instagram.com/ekizr_/?hl=id">
+          <a href="https://www.instagram.com/aziziazzasgwy_">
             <img
               src="/SocialMediaImg/Instagram.jpg"
               alt="Instagram Eki"
@@ -133,7 +133,7 @@ export default function SocialMedia() {
           </a>
         </TabPanel>
         <TabPanel value={value} index={1}> 
-          <a href="https://youtube.com/@eki_zulfar">
+          <a href="https://www.youtube.com/@reyzzkizx">
             <img
               src="/SocialMediaImg/youtube.jpg"
               alt="Youtube Eki"
@@ -142,7 +142,7 @@ export default function SocialMedia() {
           </a>
         </TabPanel>
         <TabPanel value={value} index={2}> 
-          <a href="https://github.com/EkiZR">
+          <a href="https://github.com/Azizi123haha">
             <img
               src="/SocialMediaImg/github.jpg"
               alt="Github Eki"
