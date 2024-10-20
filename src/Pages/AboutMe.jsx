@@ -51,11 +51,7 @@ const AboutMe = () => {
               data-aos="fade-up"
               data-aos-duration="600"
             >
-              Saya adalah Muhammad Ramdhan Azizi, seorang siswa yang berumur 14 tahun yang fokus pada
-              pembelajaran desainer grafis. Saya memiliki tekad yang kuat untuk terus belajar dan mengasah
-              keterampilan saya demi mencapai kesempurnaan. Selalu berusaha untuk menemukan solusi terbaik
-              dalam setiap proyek yang saya kerjakan dan memiliki minat besar di bidang pembuatan web, desain,
-              dan bot whatsApp.
+              Halo, nama gw Muhammad Ramdhan Azizi, biasa di panggil "ajiji" atau "Azizi", bukan Azizi Shafa Asadel yee, umur gw 14 tahun, hobi gw nge desain ( gabut doang njir ), udah sih segitu aja, kepo lu ( gw ganteng )
             </p>
 
             <div
