@@ -126,7 +126,7 @@ export default function SocialMedia() {
         <TabPanel value={value} index={0}>
           <a href="https://www.instagram.com/aziziazzasgwy_">
             <img
-              src="/SocialMediaImg/Instagram.jpg"
+              src="/SocialMediaImg/instagram.jpg"
               alt="Instagram Azizi"
               className="object-contain h-auto w-[10rem] md:w-[14.3rem]  rounded-xl "
             />
