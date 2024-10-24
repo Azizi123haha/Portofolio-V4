@@ -84,6 +84,15 @@ export default function FullWidthTabs() {
                 fontSize: ["1rem", "2rem"],
               }}
             />
+            <Tab
+              label="Hobbies"
+              {...a11yProps(1)}
+              sx={{
+                fontWeight: "Bold",
+                color: "#ced4d7",
+                fontSize: ["1rem", "2rem"],
+              }}
+            />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -108,8 +117,20 @@ export default function FullWidthTabs() {
               </div>
             </div>
           </TabPanel>
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            {/* Add content for the Hobbies tab here */}
+            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                {/* Hobby icons or text here */}
+                <PIcon PIcon="guitar.svg" Language="Guitar" />
+                <PIcon PIcon="book.svg" Language="Reading" />
+                <PIcon PIcon="hiking.svg" Language="Hiking" />
+                {/* Add more hobby icons or text as needed */}
+              </div>
+            </div>
+          </TabPanel>
         </SwipeableViews>
       </Box>
     </div>
   );
-}
+            }
