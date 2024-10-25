@@ -85,17 +85,8 @@ export default function FullWidthTabs() {
               }}
             />
             <Tab
-              label="Hobbies"
-              {...a11yProps(1)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
               label="Profile"
-              {...a11yProps(2)}
+              {...a11yProps(1)}
               sx={{
                 fontWeight: "Bold",
                 color: "#ced4d7",
@@ -127,18 +118,6 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            {/* Add content for the Hobbies tab here */}
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                {/* Hobby icons or text here */}
-                <PIcon PIcon="guitar.svg" Language="Guitar" />
-                <PIcon PIcon="book.svg" Language="Reading" />
-                <PIcon PIcon="hiking.svg" Language="Hiking" />
-                {/* Add more hobby icons or text as needed */}
-              </div>
-            </div>
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
             {/* Content for the Profile tab */}
             <div className="container mx-auto flex justify-center items-center">
               {/* Add your profile information here, such as name, photo, bio, etc. */}
