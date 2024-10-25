@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Card, CardContent, CardMedia } from "@mui/material";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -81,13 +82,11 @@ export default function FullWidthTabs() {
       title: "Project One",
       description: "Description for project one.",
       image: "path/to/image1.jpg", // Replace with your image paths
-      link: "https://linktoyourproject.com",
     },
     {
       title: "Project Two",
       description: "Description for project two.",
       image: "path/to/image2.jpg",
-      link: "https://linktoyourproject.com",
     },
     // Add more projects as needed
   ];
@@ -114,7 +113,7 @@ export default function FullWidthTabs() {
               label="Skills"
               {...a11yProps(0)}
               sx={{
-                fontWeight: "Bold",
+                fontWeight: "bold",
                 color: "#ced4d7",
                 fontSize: ["1rem", "2rem"],
               }}
@@ -123,7 +122,7 @@ export default function FullWidthTabs() {
               label="Things I Love"
               {...a11yProps(1)}
               sx={{
-                fontWeight: "Bold",
+                fontWeight: "bold",
                 color: "#ced4d7",
                 fontSize: ["1rem", "2rem"],
               }}
@@ -132,7 +131,7 @@ export default function FullWidthTabs() {
               label="Projects"
               {...a11yProps(2)}
               sx={{
-                fontWeight: "Bold",
+                fontWeight: "bold",
                 color: "#ced4d7",
                 fontSize: ["1rem", "2rem"],
               }}
@@ -172,20 +171,26 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col items-center">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.map((project, index) => (
-                <div key={index} className="p-5 text-center">
+                <Card key={index} sx={{ maxWidth: 345, bgcolor: "#1e1e1e", borderRadius: "8px", transition: "0.3s", '&:hover': { transform: 'scale(1.05)' } }}>
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded" />
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={project.image}
+                      alt={project.title}
+                    />
                   )}
-                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{project.title}</Typography>
-                  <Typography sx={{ color: "#ced4d7" }}>{project.description}</Typography>
-                  {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                      View Project
-                    </a>
-                  )}
-                </div>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div" sx={{ color: "#fff" }}>
+                      {project.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "#ced4d7" }}>
+                      {project.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </TabPanel>
