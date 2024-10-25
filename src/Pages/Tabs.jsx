@@ -75,6 +75,23 @@ export default function FullWidthTabs() {
     },
   ];
 
+  // Project data
+  const projects = [
+    {
+      title: "Project One",
+      description: "Description for project one.",
+      image: "path/to/image1.jpg", // Replace with your image paths
+      link: "https://linktoyourproject.com",
+    },
+    {
+      title: "Project Two",
+      description: "Description for project two.",
+      image: "path/to/image2.jpg",
+      link: "https://linktoyourproject.com",
+    },
+    // Add more projects as needed
+  ];
+
   return (
     <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
       <Box sx={{ width: "100%" }}>
@@ -111,6 +128,15 @@ export default function FullWidthTabs() {
                 fontSize: ["1rem", "2rem"],
               }}
             />
+            <Tab
+              label="Projects"
+              {...a11yProps(2)}
+              sx={{
+                fontWeight: "Bold",
+                color: "#ced4d7",
+                fontSize: ["1rem", "2rem"],
+              }}
+            />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -141,6 +167,24 @@ export default function FullWidthTabs() {
                 <div key={index} className="p-5 text-center">
                   <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
                   <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
+                </div>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <div className="container mx-auto flex flex-col items-center">
+              {projects.map((project, index) => (
+                <div key={index} className="p-5 text-center">
+                  {project.image && (
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded" />
+                  )}
+                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{project.title}</Typography>
+                  <Typography sx={{ color: "#ced4d7" }}>{project.description}</Typography>
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                      View Project
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
