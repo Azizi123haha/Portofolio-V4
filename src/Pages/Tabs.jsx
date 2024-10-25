@@ -122,9 +122,9 @@ export default function FullWidthTabs() {
             <div className="container mx-auto flex justify-center items-center">
               {/* Add your profile information here, such as name, photo, bio, etc. */}
               <div className="profile-info">
-                <img src="your_profile_picture.jpg" alt="Your Name" />
-                <h2>Your Name</h2>
-                <p>Your Bio</p>
+                <img src="your_profile_picture.jpg" alt="Designing" />
+                <h2>Saya Belajar Desain dikarenakan biar jadi orang keren aja njir haha</h2>
+                <p>kalo lu apa? </p>
               </div>
             </div>
           </TabPanel>
