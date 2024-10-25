@@ -51,14 +51,35 @@ function a11yProps(index) {
 
 export default function FullWidthTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const sections = [
+    {
+      title: "Designing",
+      icon: "design-icon.png",
+      description:
+        "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
+    },
+    {
+      title: "Developing",
+      icon: "code-icon.png",
+      description:
+        "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
+    },
+    {
+      title: "Expanding",
+      icon: "coffee-cup-icon.png",
+      description:
+        "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
+    },
+  ];
+
   return (
-    <div className="md:px-[10%]  md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]">
           <Tabs
@@ -103,7 +124,7 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                {/* Programming icon / tech stack  */}
+                {/* Programming icon / tech stack */}
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
                 <PIcon PIcon="javascript.svg" Language="JavaScript" />
@@ -118,18 +139,18 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            {/* Content for the Profile tab */}
-            <div className="container mx-auto flex justify-center items-center">
-              {/* Add your profile information here, such as name, photo, bio, etc. */}
-              <div className="profile-info">
-                <img src="your_profile_picture.jpg" alt="Designing" />
-                <h2>Saya Belajar Desain dikarenakan biar jadi orang keren aja njir haha</h2>
-                <p>kalo lu apa? </p>
-              </div>
+            <div className="container mx-auto flex flex-col items-center">
+              {sections.map((section, index) => (
+                <div key={index} className="p-5 text-center">
+                  <img src={section.icon} alt={`${section.title} icon`} className="w-12 h-12 mx-auto mb-4" />
+                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
+                  <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
+                </div>
+              ))}
             </div>
           </TabPanel>
         </SwipeableViews>
       </Box>
     </div>
   );
-}
+    }
