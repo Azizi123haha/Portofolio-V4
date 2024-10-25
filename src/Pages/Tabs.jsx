@@ -93,6 +93,15 @@ export default function FullWidthTabs() {
                 fontSize: ["1rem", "2rem"],
               }}
             />
+            <Tab
+              label="Profile"
+              {...a11yProps(2)}
+              sx={{
+                fontWeight: "Bold",
+                color: "#ced4d7",
+                fontSize: ["1rem", "2rem"],
+              }}
+            />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -126,6 +135,17 @@ export default function FullWidthTabs() {
                 <PIcon PIcon="book.svg" Language="Reading" />
                 <PIcon PIcon="hiking.svg" Language="Hiking" />
                 {/* Add more hobby icons or text as needed */}
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            {/* Content for the Profile tab */}
+            <div className="container mx-auto flex justify-center items-center">
+              {/* Add your profile information here, such as name, photo, bio, etc. */}
+              <div className="profile-info">
+                <img src="your_profile_picture.jpg" alt="Your Name" />
+                <h2>Your Name</h2>
+                <p>Your Bio</p>
               </div>
             </div>
           </TabPanel>
