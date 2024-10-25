@@ -60,19 +60,16 @@ export default function FullWidthTabs() {
   const sections = [
     {
       title: "Designing",
-      icon: "design-icon.png",
       description:
         "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
     },
     {
       title: "Developing",
-      icon: "code-icon.png",
       description:
         "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
     },
     {
       title: "Expanding",
-      icon: "coffee-cup-icon.png",
       description:
         "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
     },
@@ -106,7 +103,7 @@ export default function FullWidthTabs() {
               }}
             />
             <Tab
-              label="Things I Love"
+              label="Profile"
               {...a11yProps(1)}
               sx={{
                 fontWeight: "Bold",
@@ -142,7 +139,6 @@ export default function FullWidthTabs() {
             <div className="container mx-auto flex flex-col items-center">
               {sections.map((section, index) => (
                 <div key={index} className="p-5 text-center">
-                  <img src={section.icon} alt={`${section.title} icon`} className="w-12 h-12 mx-auto mb-4" />
                   <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
                   <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
                 </div>
@@ -153,4 +149,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-    }
+}
