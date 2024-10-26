@@ -10,7 +10,6 @@ import Box from "@mui/material/Box";
 import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Card, CardContent, CardMedia } from "@mui/material";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -76,19 +75,19 @@ export default function FullWidthTabs() {
     },
   ];
 
-  // Project data
+  // Project data with updated image paths
   const projects = [
     {
       title: "Project One",
       description: "Description for project one.",
-      image: "path/to/image1.jpg", // Replace with your image paths
+      image: "/images/projectazizi1.jpg", // Path sesuai dengan folder public
     },
     {
       title: "Project Two",
       description: "Description for project two.",
-      image: "path/to/image2.jpg",
+      image: "/images/projectazizi2.jpg", // Path sesuai
     },
-    // Add more projects as needed
+    // Tambahkan proyek lain jika ada
   ];
 
   return (
@@ -109,44 +108,15 @@ export default function FullWidthTabs() {
               margin: "0 auto",
             }}
           >
-            <Tab
-              label="Skills"
-              {...a11yProps(0)}
-              sx={{
-                fontWeight: "bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
-              label="Things I Love"
-              {...a11yProps(1)}
-              sx={{
-                fontWeight: "bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
-              label="Projects"
-              {...a11yProps(2)}
-              sx={{
-                fontWeight: "bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
+            <Tab label="Skills" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
+            <Tab label="Things I Love" {...a11yProps(1)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
+            <Tab label="Projects" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
           </Tabs>
         </AppBar>
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={setValue}
-        >
+        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                {/* Programming icon / tech stack */}
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
                 <PIcon PIcon="javascript.svg" Language="JavaScript" />
@@ -173,24 +143,15 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.map((project, index) => (
-                <Card key={index} sx={{ maxWidth: 345, bgcolor: "#1e1e1e", borderRadius: "8px", transition: "0.3s", '&:hover': { transform: 'scale(1.05)' } }}>
+                <div key={index} className="bg-[#1e1e1e] rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
                   {project.image && (
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={project.image}
-                      alt={project.title}
-                    />
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
                   )}
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div" sx={{ color: "#fff" }}>
-                      {project.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: "#ced4d7" }}>
-                      {project.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                  <div className="p-4">
+                    <h2 className="text-white text-lg font-semibold">{project.title}</h2>
+                    <p className="text-[#ced4d7] text-sm mt-2">{project.description}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </TabPanel>
