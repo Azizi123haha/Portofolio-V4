@@ -78,14 +78,14 @@ export default function FullWidthTabs() {
   // Project data with updated image paths
   const projects = [
     {
-      title: "Project One",
-      description: "Description for project one.",
-      image: "/images/projectazizi1.jpg", // Path sesuai dengan folder public
+      title: "Bot WhatsApp",
+      description: "AI yang terdapat pada WhatsApp.",
+      image: "/images/azizipoject1.jpg", // Path sesuai dengan folder public
     },
     {
       title: "Project Two",
       description: "Description for project two.",
-      image: "/images/projectazizi2.jpg", // Path sesuai
+      image: "/images/aziziproject2.jpg", // Path sesuai
     },
     // Tambahkan proyek lain jika ada
   ];
