@@ -28,7 +28,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3, marginTop: "20px" }}> {/* Tambahkan marginTop untuk jarak */}
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -60,32 +60,31 @@ export default function FullWidthTabs() {
   const sections = [
     {
       title: "Designing",
-      description:
-        "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
+      description: "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
     },
     {
       title: "Developing",
-      description:
-        "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
+      description: "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
     },
     {
       title: "Expanding",
-      description:
-        "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
+      description: "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
     },
   ];
 
   // Project data with updated image paths
   const projects = [
     {
-      title: "Bot WhatsApp",
-      description: "AI yang terdapat pada WhatsApp.",
-      image: "/images/aziziproject1.jpg", // Path sesuai dengan folder public
+      title: "Project One",
+      description: "Description for project one.",
+      image: "/images/ImgWeb.png", // Path sesuai dengan folder public
+      bgColor: "#f5a623", // Background color untuk kotak proyek
     },
     {
       title: "Project Two",
       description: "Description for project two.",
-      image: "/images/aziziproject2.jpg", // Path sesuai
+      image: "/images/Photo.png", // Path sesuai
+      bgColor: "#7ed321", // Background color untuk kotak proyek
     },
     // Tambahkan proyek lain jika ada
   ];
@@ -108,9 +107,9 @@ export default function FullWidthTabs() {
               margin: "0 auto",
             }}
           >
-            <Tab label="Skills" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
-            <Tab label="Things I Love" {...a11yProps(1)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
-            <Tab label="Projects" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"] }} />
+            <Tab label="Skills" {...a11yProps(0)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Things I Love" {...a11yProps(1)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Projects" {...a11yProps(2)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
@@ -143,9 +142,9 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.map((project, index) => (
-                <div key={index} className="bg-[#1e1e1e] rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
+                <div key={index} className="rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105" style={{ backgroundColor: project.bgColor }}>
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover rotate-2" />
                   )}
                   <div className="p-4">
                     <h2 className="text-white text-lg font-semibold">{project.title}</h2>
