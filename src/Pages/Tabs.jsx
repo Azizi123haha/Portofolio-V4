@@ -80,7 +80,7 @@ export default function FullWidthTabs() {
     {
       title: "Bot WhatsApp",
       description: "AI yang terdapat pada WhatsApp.",
-      image: "/images/azizipoject1.jpg", // Path sesuai dengan folder public
+      image: "/images/aziziproject1.jpg", // Path sesuai dengan folder public
     },
     {
       title: "Project Two",
