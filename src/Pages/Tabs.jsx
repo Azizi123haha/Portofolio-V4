@@ -73,7 +73,7 @@ export default function FullWidthTabs() {
 
   const projects = [
     {
-      title: "Aritmatika Solver",
+      title: "ppp",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
     },
