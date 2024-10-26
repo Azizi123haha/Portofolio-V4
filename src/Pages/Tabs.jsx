@@ -7,7 +7,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -28,7 +27,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, marginTop: "20px" }}> {/* Tambahkan marginTop untuk jarak */}
+        <Box sx={{ p: 3, marginTop: "20px" }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -72,21 +71,22 @@ export default function FullWidthTabs() {
     },
   ];
 
-  // Project data with updated image paths
   const projects = [
     {
-      title: "Project One",
-      description: "Description for project one.",
-      image: "/images/ImgWeb.png", // Path sesuai dengan folder public
-      bgColor: "#f5a623", // Background color untuk kotak proyek
+      title: "Aritmatika Solver",
+      description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
+      image: "/images/arithmetic_solver.png",
     },
     {
-      title: "Project Two",
-      description: "Description for project two.",
-      image: "/images/Photo.png", // Path sesuai
-      bgColor: "#7ed321", // Background color untuk kotak proyek
+      title: "AutoChat-Discord",
+      description: "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
+      image: "/images/autochat_discord.png",
     },
-    // Tambahkan proyek lain jika ada
+    {
+      title: "Buku Catatan",
+      description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
+      image: "/images/buku_catatan.png",
+    },
   ];
 
   return (
@@ -107,27 +107,14 @@ export default function FullWidthTabs() {
               margin: "0 auto",
             }}
           >
-            <Tab label="Skills" {...a11yProps(0)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
-            <Tab label="Things I Love" {...a11yProps(1)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
-            <Tab label="Projects" {...a11yProps(2)} data-aos="fade-right" data-aos-duration="500" sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Skills" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Things I Love" {...a11yProps(1)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Projects" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                <PIcon PIcon="html.svg" Language="HTML" />
-                <PIcon PIcon="css.svg" Language="CSS" />
-                <PIcon PIcon="javascript.svg" Language="JavaScript" />
-                <PIcon PIcon="tailwind.svg" Language="Tailwind CSS" />
-                <PIcon PIcon="reactjs.svg" Language="ReactJS" />
-                <PIcon PIcon="vite.svg" Language="Vite" />
-                <PIcon PIcon="nodejs.svg" Language="Node JS" />
-                <PIcon PIcon="bootstrap.svg" Language="Bootstrap" />
-                <PIcon PIcon="firebase.svg" Language="Firebase" />
-                <PIcon PIcon="MUI.svg" Language="Material UI" />
-              </div>
-            </div>
+            {/* Skills content here */}
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex flex-col items-center">
@@ -140,16 +127,22 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div key={index} className="rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105" style={{ backgroundColor: project.bgColor }}>
+                <div
+                  key={index}
+                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
+                  style={{ backgroundColor: "#2d2d2d" }}
+                >
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-48 object-cover rotate-2" />
+                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" />
                   )}
-                  <div className="p-4">
-                    <h2 className="text-white text-lg font-semibold">{project.title}</h2>
-                    <p className="text-[#ced4d7] text-sm mt-2">{project.description}</p>
-                  </div>
+                  <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
+                    {project.title}
+                  </Typography>
+                  <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
+                    {project.description}
+                  </Typography>
                 </div>
               ))}
             </div>
