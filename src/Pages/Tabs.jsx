@@ -10,7 +10,12 @@ import Box from "@mui/material/Box";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PIcon from "../Components/CardIcon";
-import { styled } from "@mui/system";
+import { styled } from "@mui/system"; // Importing styled from MUI system
+
+// Example styled component
+const StyledBox = styled(Box)({
+  padding: "20px",
+});
 
 function TabPanel(props) {
   useEffect(() => {
@@ -97,7 +102,7 @@ export default function FullWidthTabs() {
   ];
 
   return (
-    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs">
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
@@ -123,10 +128,10 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div
+                <StyledBox
                   key={index}
                   className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#1f2228" }} // Background sesuai dengan gambar referensi
+                  style={{ backgroundColor: "#1f2228" }}
                   data-aos="fade-right"
                   data-aos-delay={`${index * 150}`}
                 >
@@ -139,7 +144,7 @@ export default function FullWidthTabs() {
                   <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
                     {project.description}
                   </Typography>
-                </div>
+                </StyledBox>
               ))}
             </div>
           </TabPanel>
@@ -173,4 +178,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-            }
+}
