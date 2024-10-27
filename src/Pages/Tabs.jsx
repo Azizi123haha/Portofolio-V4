@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -9,11 +7,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CardProject from "../Components/Card";
-import Certificate from "../Components/Certificate";
-import PIcon from "../Components/CardIcon";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import PIcon from "../Components/CardIcon"; // Import untuk icon SVG
 import { styled } from "@mui/system";
 
 function TabPanel(props) {
@@ -56,55 +52,50 @@ function a11yProps(index) {
 
 export default function FullWidthTabs() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
-  const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const [showAllCertificates, setShowAllCertificates] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const projectCollection = collection(db, "projects");
-        const certificateCollection = collection(db, "certificates");
-        const projectQuerySnapshot = await getDocs(projectCollection);
-        const certificateQuerySnapshot = await getDocs(certificateCollection);
-
-        const projectData = projectQuerySnapshot.docs.map((doc) => doc.data());
-        const certificateData = certificateQuerySnapshot.docs.map((doc) => doc.data());
-
-        setProjects(projectData);
-        setCertificates(certificateData);
-      } catch (error) {
-        console.error("Error fetching data from Firebase:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleShowMoreProjects = () => {
-    setShowAllProjects(true);
-  };
+  const sections = [
+    {
+      title: "Designing",
+      description:
+        "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
+    },
+    {
+      title: "Developing",
+      description:
+        "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
+    },
+    {
+      title: "Expanding",
+      description:
+        "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
+    },
+  ];
 
-  const handleShowMoreCertificates = () => {
-    setShowAllCertificates(true);
-  };
-
-  const handleShowLessProjects = () => {
-    setShowAllProjects(false);
-  };
-
-  const handleShowLessCertificates = () => {
-    setShowAllCertificates(false);
-  };
+  const projects = [
+    {
+      title: "ppp",
+      description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
+      image: "/images/arithmetic_solver.png",
+    },
+    {
+      title: "AutoChat-Discord",
+      description: "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
+      image: "/images/autochat_discord.png",
+    },
+    {
+      title: "Buku Catatan",
+      description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
+      image: "/images/buku_catatan.png",
+    },
+  ];
 
   return (
-    <div className="md:px-[10%]  md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]">
           <Tabs
@@ -121,96 +112,16 @@ export default function FullWidthTabs() {
               margin: "0 auto",
             }}
           >
-            <Tab
-              label="Project"
-              {...a11yProps(0)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
-              label="Certificate"
-              {...a11yProps(1)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
-            <Tab
-              label="Tech Stack"
-              {...a11yProps(2)}
-              sx={{
-                fontWeight: "Bold",
-                color: "#ced4d7",
-                fontSize: ["1rem", "2rem"],
-              }}
-            />
+            <Tab label="Skills" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Things I Love" {...a11yProps(1)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Projects" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
           </Tabs>
         </AppBar>
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={setValue}
-        >
+        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden ">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {(showAllProjects ? projects : projects.slice(0, 6)).map((project, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
-                    <CardProject Img={project.Img} Title={project.Title} Description={project.Description} Link={project.Link} />
-                  </div>
-                ))}
-              </div>
-             
-            </div>
-            {projects.length > 6 && (
-                <div className="mt-4 text-[#ced4d7] ">
-                  {showAllProjects ? (
-                    <button onClick={handleShowLessProjects} className="opacity-75 italic text-sm">
-                      See Less
-                    </button>
-                  ) : (
-                    <button onClick={handleShowMoreProjects} className="opacity-75 text-sm">
-                      See More
-                    </button>
-                  )}
-                </div>
-              )}
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
-                {(showAllCertificates ? certificates : certificates.slice(0, 6)).map((Sertifikat, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
-                    <Certificate ImgSertif={Sertifikat.Img} />
-                  </div>
-                ))}
-              </div>
-              </div>
-              {certificates.length > 6 && (
-                <div className="mt-4 text-[#ced4d7]" >
-                  {showAllCertificates ? (
-                    <button onClick={handleShowLessCertificates} className="opacity-75 italic text-sm">
-                      See Less
-                    </button>
-                  ) : (
-                    <button onClick={handleShowMoreCertificates} className="opacity-75 text-sm">
-                      See More
-                    </button>
-                  )}
-                </div>
-              )}
-
-  
-          
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
             <div className="container mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                {/* Programming icon / tech stack  */}
+                {/* Programming icon / tech stack */}
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
                 <PIcon PIcon="javascript.svg" Language="JavaScript" />
@@ -224,8 +135,39 @@ export default function FullWidthTabs() {
               </div>
             </div>
           </TabPanel>
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            <div className="container mx-auto flex flex-col items-center">
+              {sections.map((section, index) => (
+                <div key={index} className="p-5 text-center">
+                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
+                  <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
+                </div>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
+                  style={{ backgroundColor: "#2d2d2d" }}
+                >
+                  {project.image && (
+                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" style={{ aspectRatio: "16/9" }} />
+                  )}
+                  <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
+                    {project.title}
+                  </Typography>
+                  <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
+                    {project.description}
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </TabPanel>
         </SwipeableViews>
       </Box>
     </div>
   );
-}
+                }
