@@ -126,7 +126,7 @@ export default function FullWidthTabs() {
                 <div
                   key={index}
                   className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#2d2d2d" }}
+                  style={{ backgroundColor: "#1f2228" }} // Background sesuai dengan gambar referensi
                   data-aos="fade-right"
                   data-aos-delay={`${index * 150}`}
                 >
