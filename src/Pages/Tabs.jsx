@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import PIcon from "../Components/CardIcon"; // Import untuk icon SVG
+import { styled } from "@mui/system";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -27,7 +29,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3, marginTop: "20px" }}>
+        <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -59,15 +61,18 @@ export default function FullWidthTabs() {
   const sections = [
     {
       title: "Designing",
-      description: "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
+      description:
+        "I love designing. When I see something that needs improvement, I enjoy making it better visually. I pay attention to every detail, whether it’s a graphic or a user interface. My goal is to create designs that catch the eye and inspire others.",
     },
     {
       title: "Developing",
-      description: "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
+      description:
+        "After designing, I dive into development. Coding is where I bring designs to life, turning concepts into digital experiences. Each line of code reflects my vision for functionality and elegance, showcasing my commitment to excellence.",
     },
     {
       title: "Expanding",
-      description: "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
+      description:
+        "Expanding beyond creation. I optimize templates to full websites. I refine post-development. Leveraging blogging and basic SEO, I enhance visibility and impact online. Each step maximizes reach and effectiveness online.",
     },
   ];
 
@@ -114,7 +119,21 @@ export default function FullWidthTabs() {
         </AppBar>
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
-            {/* Skills content here */}
+            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                {/* Programming icon / tech stack */}
+                <PIcon PIcon="html.svg" Language="HTML" />
+                <PIcon PIcon="css.svg" Language="CSS" />
+                <PIcon PIcon="javascript.svg" Language="JavaScript" />
+                <PIcon PIcon="tailwind.svg" Language="Tailwind CSS" />
+                <PIcon PIcon="reactjs.svg" Language="ReactJS" />
+                <PIcon PIcon="vite.svg" Language="Vite" />
+                <PIcon PIcon="nodejs.svg" Language="Node JS" />
+                <PIcon PIcon="bootstrap.svg" Language="Bootstrap" />
+                <PIcon PIcon="firebase.svg" Language="Firebase" />
+                <PIcon PIcon="MUI.svg" Language="Material UI" />
+              </div>
+            </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
             <div className="container mx-auto flex flex-col items-center">
@@ -135,7 +154,7 @@ export default function FullWidthTabs() {
                   style={{ backgroundColor: "#2d2d2d" }}
                 >
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" />
+                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" style={{ aspectRatio: "16/9" }} />
                   )}
                   <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
                     {project.title}
