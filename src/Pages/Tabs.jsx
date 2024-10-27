@@ -10,12 +10,7 @@ import Box from "@mui/material/Box";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PIcon from "../Components/CardIcon";
-import { styled } from "@mui/system"; // Importing styled from MUI system
-
-// Example styled component
-const StyledBox = styled(Box)({
-  padding: "20px",
-});
+import { styled } from "@mui/system";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -57,6 +52,18 @@ function a11yProps(index) {
   };
 }
 
+const StyledBox = styled(Box)({
+  padding: "20px",
+  backgroundColor: "#333", // Warna latar belakang card yang gelap
+  borderRadius: "10px", // Membuat sudut card melengkung
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)", // Memberikan bayangan
+  color: "#ced4d7", // Warna teks yang kontras
+  transition: "transform 0.3s ease", // Efek transisi untuk animasi hover
+  "&:hover": {
+    transform: "scale(1.05)", // Efek memperbesar saat dihover
+  },
+});
+
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
@@ -85,7 +92,7 @@ export default function FullWidthTabs() {
 
   const projects = [
     {
-      title: "ppp",
+      title: "Aritmatika Solver",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
     },
@@ -102,7 +109,7 @@ export default function FullWidthTabs() {
   ];
 
   return (
-    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs">
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "#f0f0f0" }}>
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
@@ -130,13 +137,12 @@ export default function FullWidthTabs() {
               {projects.map((project, index) => (
                 <StyledBox
                   key={index}
-                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#1f2228" }}
+                  className="text-center p-6"
                   data-aos="fade-right"
                   data-aos-delay={`${index * 150}`}
                 >
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4" />
+                    <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4 rounded" />
                   )}
                   <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
                     {project.title}
@@ -144,6 +150,21 @@ export default function FullWidthTabs() {
                   <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
                     {project.description}
                   </Typography>
+                  <Box sx={{
+                    mt: 2,
+                    py: 1,
+                    px: 4,
+                    backgroundColor: "#2d3748", // Warna button mirip dengan gambar
+                    borderRadius: "5px",
+                    color: "#ced4d7",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    "&:hover": {
+                      backgroundColor: "#4a5568", // Warna hover button
+                    }
+                  }}>
+                    View Project
+                  </Box>
                 </StyledBox>
               ))}
             </div>
