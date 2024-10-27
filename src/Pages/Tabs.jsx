@@ -97,7 +97,7 @@ export default function FullWidthTabs() {
   ];
 
   return (
-    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "rgba(0, 34, 85, 0.9)" }}>
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "#f0f0f0" }}>
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
@@ -173,4 +173,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-}
+            }
