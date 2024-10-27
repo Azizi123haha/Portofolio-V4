@@ -9,13 +9,15 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import PIcon from "../Components/CardIcon"; // Import untuk icon SVG
+import PIcon from "../Components/CardIcon";
 import { styled } from "@mui/system";
 
 function TabPanel(props) {
   useEffect(() => {
-    AOS.init();
-    AOS.refresh();
+    AOS.init({
+      duration: 600,
+      easing: "ease-out-cubic",
+    });
   }, []);
 
   const { children, value, index, ...other } = props;
@@ -95,9 +97,9 @@ export default function FullWidthTabs() {
   ];
 
   return (
-    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" data-aos="fade-up" data-aos-duration="800">
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "rgba(0, 34, 85, 0.9)" }}>
       <Box sx={{ width: "100%" }}>
-        <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]">
+        <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
             value={value}
             onChange={handleChange}
@@ -112,16 +114,48 @@ export default function FullWidthTabs() {
               margin: "0 auto",
             }}
           >
-            <Tab label="Skills" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Projects" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
             <Tab label="Things I Love" {...a11yProps(1)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
-            <Tab label="Projects" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
+            <Tab label="Skills" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
           </Tabs>
         </AppBar>
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
+                  style={{ backgroundColor: "#2d2d2d" }}
+                  data-aos="fade-right"
+                  data-aos-delay={`${index * 150}`}
+                >
+                  {project.image && (
+                    <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4" />
+                  )}
+                  <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
+                    {project.title}
+                  </Typography>
+                  <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
+                    {project.description}
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            <div className="container mx-auto flex flex-col items-center">
+              {sections.map((section, index) => (
+                <div key={index} className="p-5 text-center" data-aos="fade-left" data-aos-delay={`${index * 100}`}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
+                  <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
+                </div>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <div className="container mx-auto flex justify-center items-center overflow-hidden" data-aos="fade-up" data-aos-delay="200">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-                {/* Programming icon / tech stack */}
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
                 <PIcon PIcon="javascript.svg" Language="JavaScript" />
@@ -133,37 +167,6 @@ export default function FullWidthTabs() {
                 <PIcon PIcon="firebase.svg" Language="Firebase" />
                 <PIcon PIcon="MUI.svg" Language="Material UI" />
               </div>
-            </div>
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col items-center">
-              {sections.map((section, index) => (
-                <div key={index} className="p-5 text-center">
-                  <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
-                  <Typography sx={{ color: "#ced4d7" }}>{section.description}</Typography>
-                </div>
-              ))}
-            </div>
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#2d2d2d" }}
-                >
-                  {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" style={{ aspectRatio: "16/9" }} />
-                  )}
-                  <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
-                    {project.title}
-                  </Typography>
-                  <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
-                    {project.description}
-                  </Typography>
-                </div>
-              ))}
             </div>
           </TabPanel>
         </SwipeableViews>
