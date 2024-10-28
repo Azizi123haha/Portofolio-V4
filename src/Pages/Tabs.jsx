@@ -126,9 +126,9 @@ export default function FullWidthTabs() {
             sx={{
               display: "flex",
               justifyContent: "center",
-              width: "auto",
-              margin: "0 auto",
+              width: "100%",
               overflow: "hidden",
+              margin: "0 auto",
             }}
           >
             <Tab label="Projects" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
@@ -144,7 +144,7 @@ export default function FullWidthTabs() {
                   key={index}
                   className="text-center p-6"
                   data-aos="fade-right"
-                  data-aos-delay={`${index * 150}`}
+                  data-aos-delay={`${index * 150}`} // Menjaga animasi pada proyek
                 >
                   {project.image && (
                     <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4 rounded" />
@@ -178,7 +178,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col items-center overflow-hidden">
+            <div className="container mx-auto flex flex-col items-center">
               {sections.map((section, index) => (
                 <div key={index} className="p-5 text-center" data-aos="fade-left" data-aos-delay={`${index * 100}`}>
                   <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
@@ -188,7 +188,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <div className="container mx-auto flex justify-center items-center" data-aos="fade-up" data-aos-delay="200" style={{ overflow: "hidden", maxHeight: "100vh" }}>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
@@ -208,3 +208,4 @@ export default function FullWidthTabs() {
     </div>
   );
 }
+``
