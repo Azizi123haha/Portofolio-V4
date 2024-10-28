@@ -52,6 +52,19 @@ function a11yProps(index) {
   };
 }
 
+// Styled card box dengan latar belakang gelap
+const StyledBox = styled(Box)({
+  padding: "20px",
+  backgroundColor: "#333", // Latar belakang card gelap
+  borderRadius: "10px",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+  color: "#ced4d7",
+  transition: "transform 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+});
+
 export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
@@ -80,7 +93,7 @@ export default function FullWidthTabs() {
 
   const projects = [
     {
-      title: "ppp",
+      title: "Aritmatika Solver",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
     },
@@ -97,7 +110,7 @@ export default function FullWidthTabs() {
   ];
 
   return (
-    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs" style={{ backgroundColor: "#1f2228" }}> {/* Background diganti */}
+    <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs">
       <Box sx={{ width: "100%" }}>
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
@@ -123,15 +136,14 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div
+                <StyledBox
                   key={index}
-                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#1f2228" }} // Background sesuai dengan gambar referensi
+                  className="text-center p-6"
                   data-aos="fade-right"
                   data-aos-delay={`${index * 150}`}
                 >
                   {project.image && (
-                    <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4" />
+                    <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4 rounded" />
                   )}
                   <Typography variant="h6" sx={{ color: "#ffffff", fontWeight: "bold" }}>
                     {project.title}
@@ -139,7 +151,24 @@ export default function FullWidthTabs() {
                   <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
                     {project.description}
                   </Typography>
-                </div>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      py: 1,
+                      px: 4,
+                      backgroundColor: "#2d3748",
+                      borderRadius: "5px",
+                      color: "#ced4d7",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      "&:hover": {
+                        backgroundColor: "#4a5568",
+                      },
+                    }}
+                  >
+                    View Project
+                  </Box>
+                </StyledBox>
               ))}
             </div>
           </TabPanel>
@@ -173,4 +202,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-                  }
+}
