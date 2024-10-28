@@ -111,7 +111,7 @@ export default function FullWidthTabs() {
 
   return (
     <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs">
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%", overflow: "hidden" }}> {/* Mencegah overflow di sini */}
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
             value={value}
@@ -125,6 +125,7 @@ export default function FullWidthTabs() {
               justifyContent: "center",
               width: "auto",
               margin: "0 auto",
+              overflow: "hidden", // Mencegah overflow tab
             }}
           >
             <Tab label="Projects" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
@@ -173,7 +174,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col items-center">
+            <div className="container mx-auto flex flex-col items-center overflow-hidden">
               {sections.map((section, index) => (
                 <div key={index} className="p-5 text-center" data-aos="fade-left" data-aos-delay={`${index * 100}`}>
                   <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
@@ -202,4 +203,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-}
+                      }
