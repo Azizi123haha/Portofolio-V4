@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PIcon from "../Components/CardIcon";
-import Button from "@mui/material/Button";
+import { styled } from "@mui/system";
 
 function TabPanel(props) {
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function FullWidthTabs() {
 
   const projects = [
     {
-      title: "Aritmatika Solver",
+      title: "ppp",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
     },
@@ -126,7 +126,7 @@ export default function FullWidthTabs() {
                 <div
                   key={index}
                   className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 text-center p-6"
-                  style={{ backgroundColor: "#2b2b2b" }} // Adjust the background color as needed
+                  style={{ backgroundColor: "#1f2228" }} // Background sesuai dengan gambar referensi
                   data-aos="fade-right"
                   data-aos-delay={`${index * 150}`}
                 >
@@ -139,9 +139,6 @@ export default function FullWidthTabs() {
                   <Typography sx={{ color: "#ced4d7", marginTop: "8px" }}>
                     {project.description}
                   </Typography>
-                  <Button variant="contained" sx={{ backgroundColor: "#1f4068", color: "#ffffff", mt: 2, "&:hover": { backgroundColor: "#162447" } }}>
-                    View Project
-                  </Button>
                 </div>
               ))}
             </div>
@@ -176,4 +173,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-                  }
+}
