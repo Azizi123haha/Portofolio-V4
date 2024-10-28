@@ -29,6 +29,7 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
+      style={{ overflow: "hidden" }}  // Menambah overflow hidden ke setiap TabPanel untuk mencegah scroll
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -55,7 +56,7 @@ function a11yProps(index) {
 // Styled card box dengan latar belakang gelap
 const StyledBox = styled(Box)({
   padding: "20px",
-  backgroundColor: "#333", // Latar belakang card gelap
+  backgroundColor: "#333",
   borderRadius: "10px",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
   color: "#ced4d7",
@@ -96,19 +97,19 @@ export default function FullWidthTabs() {
       title: "Aritmatika Solver",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
-      url: "https://example.com/arithmetic-solver", // URL proyek
+      url: "https://example.com/arithmetic-solver",
     },
     {
       title: "AutoChat-Discord",
       description: "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
       image: "/images/autochat_discord.png",
-      url: "https://example.com/autochat-discord", // URL proyek
+      url: "https://example.com/autochat-discord",
     },
     {
       title: "Buku Catatan",
       description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
       image: "/images/buku_catatan.png",
-      url: "https://example.com/buku-catatan", // URL proyek
+      url: "https://example.com/buku-catatan",
     },
   ];
 
@@ -121,7 +122,7 @@ export default function FullWidthTabs() {
             onChange={handleChange}
             textColor="secondary"
             indicatorColor="secondary"
-            variant="fullWidth" // Ubah ke fullWidth untuk menyesuaikan lebar
+            variant="fullWidth"
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -141,7 +142,7 @@ export default function FullWidthTabs() {
                   key={index}
                   className="text-center p-6"
                   data-aos="fade-right"
-                  data-aos-delay={`${index * 150}`} // Menjaga animasi pada proyek
+                  data-aos-delay={`${index * 150}`}
                 >
                   {project.image && (
                     <img src={project.image} alt={project.title} className="w-full h-32 object-cover mb-4 rounded" />
@@ -166,7 +167,7 @@ export default function FullWidthTabs() {
                         backgroundColor: "#4a5568",
                       },
                     }}
-                    onClick={() => window.open(project.url, "_blank")} // Mengarahkan ke URL proyek
+                    onClick={() => window.open(project.url, "_blank")}
                   >
                     View Project
                   </Box>
@@ -175,7 +176,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col items-center">
+            <div className="container mx-auto flex flex-col items-center" style={{ overflow: "hidden" }}>
               {sections.map((section, index) => (
                 <div key={index} className="p-5 text-center" data-aos="fade-left" data-aos-delay={`${index * 100}`}>
                   <Typography variant="h6" sx={{ fontWeight: "bold", color: "#fff" }}>{section.title}</Typography>
@@ -185,7 +186,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex flex-col justify-center items-center" style={{ height: "auto", overflow: "hidden" }} data-aos="fade-up" data-aos-delay="200">
+            <div className="container mx-auto flex flex-col justify-center items-center" style={{ overflow: "hidden" }} data-aos="fade-up" data-aos-delay="200">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
@@ -193,6 +194,10 @@ export default function FullWidthTabs() {
                 <PIcon PIcon="tailwind.svg" Language="Tailwind CSS" />
                 <PIcon PIcon="reactjs.svg" Language="ReactJS" />
                 <PIcon PIcon="vite.svg" Language="Vite" />
+                <PIcon PIcon="nodejs.svg" Language="Node JS" />
+                <PIcon PIcon="bootstrap.svg" Language="Bootstrap" />
+                <PIcon PIcon="firebase.svg" Language="Firebase" />
+                <PIcon PIcon="MUI.svg" Language="Material UI" />
               </div>
             </div>
           </TabPanel>
@@ -200,4 +205,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-                    }
+}
