@@ -96,16 +96,19 @@ export default function FullWidthTabs() {
       title: "Aritmatika Solver",
       description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
       image: "/images/arithmetic_solver.png",
+      url: "https://example.com/arithmetic-solver", // URL proyek
     },
     {
       title: "AutoChat-Discord",
       description: "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
       image: "/images/autochat_discord.png",
+      url: "https://example.com/autochat-discord", // URL proyek
     },
     {
       title: "Buku Catatan",
       description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
       image: "/images/buku_catatan.png",
+      url: "https://example.com/buku-catatan", // URL proyek
     },
   ];
 
@@ -166,6 +169,7 @@ export default function FullWidthTabs() {
                         backgroundColor: "#4a5568",
                       },
                     }}
+                    onClick={() => window.open(project.url, "_blank")} // Mengarahkan ke URL proyek
                   >
                     View Project
                   </Box>
@@ -203,4 +207,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-          }
+}
