@@ -121,14 +121,11 @@ export default function FullWidthTabs() {
             onChange={handleChange}
             textColor="secondary"
             indicatorColor="secondary"
-            variant="scrollable"
-            scrollButtons="auto"
+            variant="fullWidth" // Ubah ke fullWidth untuk menyesuaikan lebar
             sx={{
               display: "flex",
               justifyContent: "center",
               width: "100%",
-              overflow: "hidden",
-              margin: "0 auto",
             }}
           >
             <Tab label="Projects" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
@@ -188,7 +185,7 @@ export default function FullWidthTabs() {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center" data-aos="fade-up" data-aos-delay="200" style={{ overflow: "hidden", maxHeight: "100vh" }}>
+            <div className="container mx-auto flex flex-col justify-center items-center" style={{ height: "auto", overflow: "hidden" }} data-aos="fade-up" data-aos-delay="200">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 <PIcon PIcon="html.svg" Language="HTML" />
                 <PIcon PIcon="css.svg" Language="CSS" />
@@ -196,10 +193,6 @@ export default function FullWidthTabs() {
                 <PIcon PIcon="tailwind.svg" Language="Tailwind CSS" />
                 <PIcon PIcon="reactjs.svg" Language="ReactJS" />
                 <PIcon PIcon="vite.svg" Language="Vite" />
-                <PIcon PIcon="nodejs.svg" Language="Node JS" />
-                <PIcon PIcon="bootstrap.svg" Language="Bootstrap" />
-                <PIcon PIcon="firebase.svg" Language="Firebase" />
-                <PIcon PIcon="MUI.svg" Language="Material UI" />
               </div>
             </div>
           </TabPanel>
@@ -207,5 +200,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-}
-``
+                    }
