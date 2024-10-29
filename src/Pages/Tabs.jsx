@@ -102,7 +102,7 @@ export default function FullWidthTabs() {
     {
       title: "Zerbeus SMP - Paper",
       description: "Zerbeus SMP server minecraft yang bisa kamu dan teman-temanmu kunjungi buat main Minecraft bareng-bareng. Bayangin aja, kamu punya dunia Minecraft sendiri yang bisa kamu kustomisasi sesuai selera. Mau bangun istana megah, kota besar, atau cuma pondok kecil di tengah hutan, semua bisa kamu lakukan di sini.",
-      image: "/projectimage/project2.jpg",
+      image: "/projectimage/project2.png",
       url: "https://chat.whatsapp.com/KwUg36POrsZCKKrTRSwyk3",
     },
     {
