@@ -29,7 +29,7 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
-      style={{ overflow: "hidden" }}  // Menambah overflow hidden ke setiap TabPanel untuk mencegah scroll
+      style={{ overflow: "hidden" }}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -124,8 +124,9 @@ export default function FullWidthTabs() {
             indicatorColor="secondary"
             variant="standard"
             sx={{
+              display: "flex",
+              justifyContent: "center",  // Memusatkan tabs
               width: "100%",
-              justifyContent: "center", // Menambahkan ini untuk memusatkan tabs
             }}
           >
             <Tab label="Projects" {...a11yProps(0)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
@@ -204,4 +205,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-                  }
+}
