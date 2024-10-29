@@ -94,22 +94,22 @@ export default function FullWidthTabs() {
 
   const projects = [
     {
-      title: "Aritmatika Solver",
-      description: "Membuat sebuah program menggunakan Python yang membantu menyelesaikan soal-soal Aritmatika dengan mudah.",
-      image: "/images/arithmetic_solver.png",
-      url: "https://example.com/arithmetic-solver",
+      title: "Bot WhatsApp",
+      description: "Bot WhatsApp adalah program komputer yang dirancang untuk berinteraksi dengan pengguna secara otomatis melalui aplikasi WhatsApp. Bayangkan seperti asisten virtual yang selalu siap menjawab pertanyaan atau melakukan tugas tertentu sesuai dengan perintah yang kamu berikan..",
+      image: "/images/project1.jpg",
+      url: "https://wa.me/6281400720356?text=.menu",
     },
     {
-      title: "AutoChat-Discord",
-      description: "AutoChat adalah solusi otomatisasi untuk mengirim pesan ke saluran Discord secara terjadwal.",
-      image: "/images/autochat_discord.png",
-      url: "https://example.com/autochat-discord",
+      title: "Zerbeus SMP - Paper",
+      description: "Zerbeus SMP server minecraft yang bisa kamu dan teman-temanmu kunjungi buat main Minecraft bareng-bareng. Bayangin aja, kamu punya dunia Minecraft sendiri yang bisa kamu kustomisasi sesuai selera. Mau bangun istana megah, kota besar, atau cuma pondok kecil di tengah hutan, semua bisa kamu lakukan di sini.",
+      image: "/images/project2.jpg",
+      url: "https://chat.whatsapp.com/KwUg36POrsZCKKrTRSwyk3",
     },
     {
-      title: "Buku Catatan",
+      title: "belom",
       description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
-      image: "/images/buku_catatan.png",
-      url: "https://example.com/buku-catatan",
+      image: "/images/project3.jpg",
+      url: "",
     },
   ];
 
