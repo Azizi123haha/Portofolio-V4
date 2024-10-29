@@ -122,7 +122,7 @@ export default function FullWidthTabs() {
             onChange={handleChange}
             textColor="secondary"
             indicatorColor="secondary"
-            variant="standard"
+            centered  // Properti untuk memusatkan tabs
             sx={{
               display: "flex",
               justifyContent: "center",  // Memusatkan tabs
