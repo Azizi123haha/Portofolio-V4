@@ -29,7 +29,7 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
-      style={{ overflow: "hidden" }}  // Menambah overflow hidden ke setiap TabPanel untuk mencegah scroll
+      style={{ overflow: "hidden" }}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -115,17 +115,15 @@ export default function FullWidthTabs() {
 
   return (
     <div className="md:px-[10%] md:mt-20 mt-10" id="Tabs">
-      <Box sx={{ width: "100%", overflow: "hidden" }}>
+      <Box sx={{ width: "100%", overflowX: "hidden" }}> {/* Menghilangkan overflow horizontal */}
         <AppBar position="static" sx={{ bgcolor: "transparent" }} className="px-[6%]" data-aos="fade-down">
           <Tabs
             value={value}
             onChange={handleChange}
             textColor="secondary"
             indicatorColor="secondary"
-            variant="fullWidth"
+            variant="standard" // Diubah menjadi "standard"
             sx={{
-              display: "flex",
-              justifyContent: "center",
               width: "100%",
             }}
           >
@@ -134,7 +132,12 @@ export default function FullWidthTabs() {
             <Tab label="Skills" {...a11yProps(2)} sx={{ fontWeight: "bold", color: "#ced4d7", fontSize: ["1rem", "2rem"], marginBottom: "10px" }} />
           </Tabs>
         </AppBar>
-        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
+        <SwipeableViews
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+          index={value}
+          onChangeIndex={setValue}
+          style={{ overflowX: "hidden" }} // Menambahkan overflowX hidden
+        >
           <TabPanel value={value} index={0} dir={theme.direction}>
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
@@ -205,4 +208,4 @@ export default function FullWidthTabs() {
       </Box>
     </div>
   );
-}
+            }
