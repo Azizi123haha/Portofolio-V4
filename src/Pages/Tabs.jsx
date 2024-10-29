@@ -96,19 +96,19 @@ export default function FullWidthTabs() {
     {
       title: "Bot WhatsApp",
       description: "Bot WhatsApp adalah program komputer yang dirancang untuk berinteraksi dengan pengguna secara otomatis melalui aplikasi WhatsApp. Bayangkan seperti asisten virtual yang selalu siap menjawab pertanyaan atau melakukan tugas tertentu sesuai dengan perintah yang kamu berikan..",
-      image: "/images/project1.jpg",
+      image: "/projectimage/project1.jpg",
       url: "https://wa.me/6281400720356?text=.menu",
     },
     {
       title: "Zerbeus SMP - Paper",
       description: "Zerbeus SMP server minecraft yang bisa kamu dan teman-temanmu kunjungi buat main Minecraft bareng-bareng. Bayangin aja, kamu punya dunia Minecraft sendiri yang bisa kamu kustomisasi sesuai selera. Mau bangun istana megah, kota besar, atau cuma pondok kecil di tengah hutan, semua bisa kamu lakukan di sini.",
-      image: "/images/project2.jpg",
+      image: "/projectimage/project2.jpg",
       url: "https://chat.whatsapp.com/KwUg36POrsZCKKrTRSwyk3",
     },
     {
       title: "belom",
-      description: "Buku Catatan adalah aplikasi untuk membuat, menyimpan, dan mengelola catatan secara digital.",
-      image: "/images/project3.jpg",
+      description: "belum tau mau buat apa.",
+      image: "/projectimage/project3.jpg",
       url: "",
     },
   ];
